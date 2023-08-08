@@ -1,4 +1,4 @@
 
-# Wool Wars plugin
+# BloodWorld
 
-players race to place their wool at the center of the map
+
