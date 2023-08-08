@@ -1,0 +1,5 @@
+name: ${project.name}
+version: ${project.version}
+main: tech.bosstop.bloodworld.BloodWorld
+api-version: 1.20
+author: "Sir_Blob_"

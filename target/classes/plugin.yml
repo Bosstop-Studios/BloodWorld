@@ -1,0 +1,5 @@
+name: BloodWorld
+version: 1.0-SNAPSHOT
+main: tech.bosstop.bloodworld.BloodWorld
+api-version: 1.20
+author: "Sir_Blob_"
