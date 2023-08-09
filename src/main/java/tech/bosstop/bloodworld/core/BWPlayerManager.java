@@ -5,17 +5,10 @@ import java.util.List;
 import java.util.UUID;
 
 import tech.bosstop.common.structures.BWPlayer;
-import tech.bosstop.common.structures.races.BWMermaid;
-import tech.bosstop.common.structures.races.BWVampire;
 
 public class BWPlayerManager {
 
     private List<BWPlayer> players = new ArrayList<BWPlayer>();
-
-    public BWPlayerManager() {
-        this.addPlayer(new BWVampire(UUID.randomUUID()));
-        this.addPlayer(new BWMermaid(UUID.randomUUID()));
-    }
 
     public List<BWPlayer> getPlayers() {
         return players;

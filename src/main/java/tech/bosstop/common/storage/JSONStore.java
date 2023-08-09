@@ -71,72 +71,63 @@ public class JSONStore {
             case "werewolf": {
                 HumanFormat humanFormat = gson.fromJson(content, HumanFormat.class);
                 for(BWPlayer player : humanFormat.getPlayers()) {
-                    BWWerewolf werewolf = (BWWerewolf) player;
-                    players.add(werewolf);
+                    players.add(new BWWerewolf(player.getUUID()));
                 }
                 break;
             }
             case "mermaid":{
                 HumanFormat humanFormat = gson.fromJson(content, HumanFormat.class);
                 for(BWPlayer player : humanFormat.getPlayers()) {
-                    BWMermaid mermaid = (BWMermaid) player;
-                    players.add(mermaid);
+                    players.add(new BWMermaid(player.getUUID()));
                 }
                 break;
             }
             case "serpentine": {
                 HumanFormat humanFormat = gson.fromJson(content, HumanFormat.class);
                 for(BWPlayer player : humanFormat.getPlayers()) {
-                    BWSerpentine serpentine = (BWSerpentine) player;
-                    players.add(serpentine);
+                    players.add(new BWSerpentine(player.getUUID()));
                 }
                 break;
             }
             case "elf": {
                 HumanFormat humanFormat = gson.fromJson(content, HumanFormat.class);
                 for(BWPlayer player : humanFormat.getPlayers()){
-                    BWElf elf = (BWElf) player;
-                    players.add(elf);
+                    players.add(new BWElf(player.getUUID()));
                 }
                 break;
             }
             case "troll": {
                 HumanFormat humanFormat = gson.fromJson(content, HumanFormat.class);
                 for(BWPlayer player : humanFormat.getPlayers()) {
-                    BWTroll troll = (BWTroll) player;
-                    players.add(troll);
+                    players.add(new BWTroll(player.getUUID()));
                 }
                 break;
             }
             case "giant": {
                 HumanFormat humanFormat = gson.fromJson(content, HumanFormat.class);
                 for(BWPlayer player : humanFormat.getPlayers()) {
-                    BWGiant giant = (BWGiant) player;
-                    players.add(giant);
+                    players.add(new BWGiant(player.getUUID()));
                 }
                 break;
             }
             case "dwarf": {
                 HumanFormat humanFormat = gson.fromJson(content, HumanFormat.class);
                 for(BWPlayer player : humanFormat.getPlayers()) {
-                    BWDwarf dwarf = (BWDwarf) player;
-                    players.add(dwarf);
+                    players.add(new BWDwarf(player.getUUID()));
                 }
                 break;
             }
             case "darkelf": {
                 HumanFormat humanFormat = gson.fromJson(content, HumanFormat.class);
                 for(BWPlayer player : humanFormat.getPlayers()) {
-                    BWDarkElf darkElf = (BWDarkElf) player;
-                    players.add(darkElf);
+                    players.add(new BWDarkElf(player.getUUID()));
                 }
                 break;
             }
             case "dragonborn": {
                 HumanFormat humanFormat = gson.fromJson(content, HumanFormat.class);
                 for(BWPlayer player : humanFormat.getPlayers()) {
-                    BWDragonBorn dragonBorn = (BWDragonBorn) player;
-                    players.add(dragonBorn);
+                    players.add(new BWDragonBorn(player.getUUID()));
                 }
                 break;
             }
