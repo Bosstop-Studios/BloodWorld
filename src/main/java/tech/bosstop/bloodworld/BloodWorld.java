@@ -2,16 +2,25 @@ package tech.bosstop.bloodworld;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
+import tech.bosstop.bloodworld.core.BWFactionManager;
 import tech.bosstop.bloodworld.core.BWPlayerManager;
+import tech.bosstop.bloodworld.events.BWEventHandler;
 import tech.bosstop.bloodworld.utilities.Chat;
+import tech.bosstop.common.storage.JSONStore;
 
 public class BloodWorld extends JavaPlugin {
 
     private static BloodWorld instance;
 
+    private JSONStore jsonStore;
+
     private Chat chat;
 
+    private BWFactionManager factionManager;
+
     private BWPlayerManager playerManager;
+
+    private BWEventHandler eventHandler;
 
     private String[] startup = {
         "                      ",
@@ -23,38 +32,59 @@ public class BloodWorld extends JavaPlugin {
         "                      ",
         "&aVersion: %version% &r",
         "&aPlayers: %player% &r",
-        "&aFactions: %player% &r",
+        "&aFactions: %factions% &r",
     };
 
     @Override
     public void onEnable() {
         instance = this;
         this.chat = new Chat();
+        this.factionManager = new BWFactionManager();
         this.playerManager = new BWPlayerManager();
+        this.eventHandler = new BWEventHandler();
 
-        for(String line : startup) {
-            line = line.replace("%version%", getDescription().getVersion());
-            line = line.replace("%player%", this.playerManager.getPlayers().size() + "");
+        this.jsonStore = new JSONStore();
 
-            this.chat.console(line);
+        try {
+            this.jsonStore.enable();
+            this.eventHandler.register();
+
+            for(String line : startup) {
+                line = line.replace("%version%", getDescription().getVersion());
+                line = line.replace("%player%", this.playerManager.getPlayers().size() + "");
+                line = line.replace("%factions%", this.factionManager.getFactions().size() + "");
+
+                this.chat.console(line);
+            }
+        } catch(Exception e) {
+            this.chat.console("&cError while checking files.");
+            e.printStackTrace();
+        } finally {
+            this.chat.console("&aBloodWorld enabled!");
         }
-
-        this.chat.console("&aPlugin enabled.");
-
-        this.chat.console(this.playerManager.getPlayers().toString());
     }
 
     @Override
     public void onDisable() {
-        this.chat.console("&cPlugin disabled.");
+        try {
+            this.jsonStore.disable();
+        } catch (Exception e) {
+            this.chat.console(e.getMessage());
+        } finally {
+            this.chat.console("&cBloodWorld disabled!");
+        }
     }
 
     public Chat getChat() {
-        return chat;
+        return this.chat;
+    }
+
+    public BWFactionManager getFactionManager() {
+        return this.factionManager;
     }
 
     public BWPlayerManager getPlayerManager() {
-        return playerManager;
+        return this.playerManager;
     }
 
     public static BloodWorld getInstance() {

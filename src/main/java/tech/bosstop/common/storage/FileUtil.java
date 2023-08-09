@@ -13,7 +13,7 @@ public class FileUtil {
     }
 
     public boolean folderExists(String path) {
-        return new File(path).exists();
+        return new File(Paths.get(path).toString()).exists();
     }
 
     public boolean fileExists(File file) {
@@ -21,7 +21,7 @@ public class FileUtil {
     }
 
     public boolean fileExists(String path) {
-        return new File(path).exists();
+        return new File(Paths.get(path).toString()).exists();
     }
 
     public void createFolder(File file) {
@@ -29,7 +29,7 @@ public class FileUtil {
     }
 
     public void createFolder(String path) {
-        new File(path).mkdir();
+        new File(Paths.get(path).toString()).mkdir();
     }
 
     public String readFile(String path) throws IOException {
@@ -38,7 +38,7 @@ public class FileUtil {
 
     public void writeFile(String path, String content) throws IOException {
         try {
-            File file = new File(path);
+            File file = new File(Paths.get(path).toString());
             if (!file.exists()) {
                 file.createNewFile();
             }
