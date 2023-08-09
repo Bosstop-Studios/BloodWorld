@@ -52,6 +52,7 @@ public class BloodWorld extends JavaPlugin {
         try {
             this.jsonStore.enable();
             this.eventHandler.register();
+            this.commandHandler.register();
 
             for(String line : startup) {
                 line = line.replace("%version%", getDescription().getVersion());

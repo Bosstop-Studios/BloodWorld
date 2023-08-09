@@ -28,11 +28,11 @@ public class BWCommandHandler implements CommandExecutor, TabCompleter {
         return newArgs;
     }
 
-    public void putCommand(String command, BWCommand pfCommand) {
-        this.bwCommands.put(command, pfCommand);
+    public void registerCommand(String command, BWCommand bwCommand) {
+        this.bwCommands.put(command, bwCommand);
     }
 
-    public void registerCommands() {
+    public void register() {
 
 
     }
@@ -68,7 +68,7 @@ public class BWCommandHandler implements CommandExecutor, TabCompleter {
         return tabList;
     }
 
-    public HashMap<String, BWCommand> getPfCommands() {
+    public HashMap<String, BWCommand> getBwCommands() {
         return this.bwCommands;
     }
 }

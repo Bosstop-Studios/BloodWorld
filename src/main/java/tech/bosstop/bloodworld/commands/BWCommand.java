@@ -14,7 +14,7 @@ public abstract class BWCommand {
     public BWCommand(String command) {
         super();
         this.instance = BloodWorld.getInstance();
-        this.instance.getCommandHandler().putCommand(command, this);
+        this.instance.getCommandHandler().registerCommand(command, this);
     }
 
     protected boolean argsNeeded(CommandSender sender, String[] args, String usage, int argsNeeded) {
