@@ -8,11 +8,13 @@ import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffectType;
 
 import tech.bosstop.common.structures.BWPlayer;
+import tech.bosstop.common.structures.BWRace;
 
 public class BWDarkElf extends BWPlayer {
 
     public BWDarkElf(UUID uuid) {
         super(uuid);
+        super.setRace(BWRace.DARKELF);
     }
 
     public boolean isBowDamage() {

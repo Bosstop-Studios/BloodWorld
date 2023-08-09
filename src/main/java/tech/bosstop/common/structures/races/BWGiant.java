@@ -6,11 +6,13 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 import tech.bosstop.common.structures.BWPlayer;
+import tech.bosstop.common.structures.BWRace;
 
 public class BWGiant extends BWPlayer {
 
     public BWGiant(UUID uuid) {
         super(uuid);
+        super.setRace(BWRace.GIANT);
     }
 
     public void setMaxHealth() {

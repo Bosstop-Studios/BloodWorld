@@ -53,6 +53,10 @@ public class BloodWorld extends JavaPlugin {
         return chat;
     }
 
+    public BWPlayerManager getPlayerManager() {
+        return playerManager;
+    }
+
     public static BloodWorld getInstance() {
         return instance;
     }

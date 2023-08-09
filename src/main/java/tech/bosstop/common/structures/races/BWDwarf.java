@@ -11,11 +11,13 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
 import tech.bosstop.common.structures.BWPlayer;
+import tech.bosstop.common.structures.BWRace;
 
 public class BWDwarf extends BWPlayer {
 
     public BWDwarf(UUID uuid) {
         super(uuid);
+        super.setRace(BWRace.DWARF);
     }
 
     public boolean isPickaxe() {
