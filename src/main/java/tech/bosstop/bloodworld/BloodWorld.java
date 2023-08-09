@@ -2,6 +2,7 @@ package tech.bosstop.bloodworld;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
+import tech.bosstop.bloodworld.commands.BWCommandHandler;
 import tech.bosstop.bloodworld.core.BWFactionManager;
 import tech.bosstop.bloodworld.core.BWPlayerManager;
 import tech.bosstop.bloodworld.events.BWEventHandler;
@@ -21,6 +22,8 @@ public class BloodWorld extends JavaPlugin {
     private BWPlayerManager playerManager;
 
     private BWEventHandler eventHandler;
+
+    private BWCommandHandler commandHandler;
 
     private String[] startup = {
         "                      ",
@@ -42,6 +45,7 @@ public class BloodWorld extends JavaPlugin {
         this.factionManager = new BWFactionManager();
         this.playerManager = new BWPlayerManager();
         this.eventHandler = new BWEventHandler();
+        this.commandHandler = new BWCommandHandler();
 
         this.jsonStore = new JSONStore();
 
@@ -85,6 +89,10 @@ public class BloodWorld extends JavaPlugin {
 
     public BWPlayerManager getPlayerManager() {
         return this.playerManager;
+    }
+
+    public BWCommandHandler getCommandHandler() {
+        return this.commandHandler;
     }
 
     public static BloodWorld getInstance() {
