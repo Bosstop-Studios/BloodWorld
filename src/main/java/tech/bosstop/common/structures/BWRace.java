@@ -11,7 +11,36 @@ public enum BWRace {
     GIANT,
     DWARF,
     DARKELF,
-    DRAGONBORN
+    DRAGONBORN;
+
+    public String toPrefix() {
+        switch(this) {
+            case VAMPIRE:
+                return "&4Vampire&r";
+            case WEREWOLF:
+                return "&6Werewolf&r";
+            case HUMAN:
+                return "&fHuman&r";
+            case MERMAID:
+                return "&bMermaid&r";
+            case SERPENTINE:
+                return "&dSerpentine&r";
+            case ELF:
+                return "&aElf&r";
+            case TROLL:
+                return "&5Troll&r";
+            case GIANT:
+                return "&2Giant&r";
+            case DWARF:
+                return "&6Dwarf&r";
+            case DARKELF:
+                return "&1Dark Elf&r";
+            case DRAGONBORN:
+                return "&cDragonborn&r";
+            default:
+                return "Unknown";
+        }
+    }
 };
 
 /*

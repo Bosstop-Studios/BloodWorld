@@ -2,6 +2,7 @@ package tech.bosstop.bloodworld.core;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import tech.bosstop.common.structures.BWFaction;
 
@@ -23,6 +24,13 @@ public class BWFactionManager {
     public BWFaction getFactionByID(String id) {
         for(BWFaction faction : this.factions) {
             if(faction.getUUID().toString().equalsIgnoreCase(id)) return faction;
+        }
+        return null;
+    }
+
+    public BWFaction getFactionByPlayer(UUID player) {
+        for(BWFaction faction : this.factions) {
+            if(faction.getMembers().contains(player)) return faction;
         }
         return null;
     }

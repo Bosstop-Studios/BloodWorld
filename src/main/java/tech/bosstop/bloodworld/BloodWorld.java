@@ -5,6 +5,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import tech.bosstop.bloodworld.commands.BWCommandHandler;
 import tech.bosstop.bloodworld.core.BWFactionManager;
 import tech.bosstop.bloodworld.core.BWPlayerManager;
+import tech.bosstop.bloodworld.core.BWTabList;
 import tech.bosstop.bloodworld.events.BWEventHandler;
 import tech.bosstop.bloodworld.utilities.Chat;
 import tech.bosstop.common.storage.JSONStore;
@@ -24,6 +25,8 @@ public class BloodWorld extends JavaPlugin {
     private BWEventHandler eventHandler;
 
     private BWCommandHandler commandHandler;
+
+    private BWTabList tabList;
 
     private String[] startup = {
         "                      ",
@@ -46,6 +49,7 @@ public class BloodWorld extends JavaPlugin {
         this.playerManager = new BWPlayerManager();
         this.eventHandler = new BWEventHandler();
         this.commandHandler = new BWCommandHandler();
+        this.tabList = new BWTabList();
 
         this.jsonStore = new JSONStore();
 
@@ -53,6 +57,7 @@ public class BloodWorld extends JavaPlugin {
             this.jsonStore.enable();
             this.eventHandler.register();
             this.commandHandler.register();
+            this.tabList.enable();
 
             for(String line : startup) {
                 line = line.replace("%version%", getDescription().getVersion());
@@ -61,6 +66,7 @@ public class BloodWorld extends JavaPlugin {
 
                 this.chat.console(line);
             }
+
         } catch(Exception e) {
             this.chat.console("&cError while checking files.");
             e.printStackTrace();
@@ -72,6 +78,7 @@ public class BloodWorld extends JavaPlugin {
     @Override
     public void onDisable() {
         try {
+            this.tabList.disable();
             this.jsonStore.disable();
         } catch (Exception e) {
             this.chat.console(e.getMessage());
