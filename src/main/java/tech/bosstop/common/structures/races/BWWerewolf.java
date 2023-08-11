@@ -27,6 +27,7 @@ public class BWWerewolf extends BWPlayer {
     public void setNightVision(boolean nightVision) {
         Player player = Bukkit.getPlayer(this.getUUID());
         if (nightVision) {
+            if(this.hasNightVision()) return;
             player.addPotionEffect(PotionEffectType.NIGHT_VISION.createEffect(Integer.MAX_VALUE, 0));
         } else {
             player.removePotionEffect(PotionEffectType.NIGHT_VISION);

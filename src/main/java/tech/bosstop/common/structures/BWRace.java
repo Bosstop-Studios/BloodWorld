@@ -45,12 +45,12 @@ public enum BWRace {
 
 /*
  * VAMPIRE: 
- * - 1 kill = 1 life
- * - 1 death = -1 life
+ * - 1 kill = 1 life Done 
+ * - 1 death = -1 life Done
  * WEREWOLF:
- * - 2.0x damage at night
- * - Can only eat meat
- * - Night Vision
+ * - 2.0x damage at night Done
+ * - Can only eat meat Done
+ * - Night Vision Done
  * HUMAN:
  * - None
  * MERMAID:

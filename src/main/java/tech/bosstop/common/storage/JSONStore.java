@@ -11,6 +11,7 @@ import tech.bosstop.bloodworld.BloodWorld;
 import tech.bosstop.common.storage.formater.FactionFormat;
 import tech.bosstop.common.storage.formater.HumanFormat;
 import tech.bosstop.common.storage.formater.VampireFormat;
+import tech.bosstop.common.storage.typeadapter.FactionTypeAdapter;
 import tech.bosstop.common.storage.typeadapter.HumanTypeAdapter;
 import tech.bosstop.common.storage.typeadapter.VampireTypeAdapter;
 import tech.bosstop.common.structures.BWFaction;
@@ -37,6 +38,7 @@ public class JSONStore {
     .setPrettyPrinting()
     .registerTypeAdapter(HumanFormat.class, new HumanTypeAdapter())
     .registerTypeAdapter(VampireFormat.class, new VampireTypeAdapter())
+    .registerTypeAdapter(FactionFormat.class, new FactionTypeAdapter())
     .serializeNulls()
     .create();
 
