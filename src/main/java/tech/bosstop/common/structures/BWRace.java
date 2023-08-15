@@ -52,7 +52,7 @@ public enum BWRace {
  * - Can only eat meat Done
  * - Night Vision Done
  * HUMAN:
- * - None
+ * - None Done
  * MERMAID:
  * - 2.0x damage with trident Done
  * - 1.5x damage underwater Done
@@ -61,7 +61,7 @@ public enum BWRace {
  * - Can mine underwater Done
  * - Can't drown Done
  * SERPENTINE:
- * - One punch poisons enemy
+ * - One punch poisons enemy Done
  * ELF:
  * - 1.5x damage with bow durning day
  * - 1.5x regeneration durning day
