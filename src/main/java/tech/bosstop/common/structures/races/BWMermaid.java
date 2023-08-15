@@ -1,5 +1,7 @@
 package tech.bosstop.common.structures.races;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.UUID;
 
 import org.bukkit.Bukkit;
@@ -16,6 +18,13 @@ public class BWMermaid extends BWPlayer {
     public BWMermaid(UUID uuid) {
         super(uuid);
         super.setRace(BWRace.MERMAID);
+    }
+
+    public boolean isPickaxe() {
+        List<Material> pickaxes = Arrays.asList(Material.WOODEN_PICKAXE, Material.STONE_PICKAXE, 
+        Material.IRON_PICKAXE, Material.GOLDEN_PICKAXE, Material.DIAMOND_PICKAXE, Material.NETHERITE_PICKAXE);
+        Player player = Bukkit.getPlayer(this.getUUID());
+        return pickaxes.contains(player.getInventory().getItemInMainHand().getType());
     }
 
     public double getUnderWaterDamage(double damage) {

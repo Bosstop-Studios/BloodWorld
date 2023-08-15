@@ -2,7 +2,10 @@ package tech.bosstop.bloodworld.events;
 
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.player.PlayerMoveEvent;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
+import tech.bosstop.common.structures.races.BWMermaid;
 import tech.bosstop.common.structures.races.BWWerewolf;
 
 public class onMove extends BWEvent {
@@ -17,10 +20,21 @@ public class onMove extends BWEvent {
         return;
     }
 
+    private void mermaidSpeed(PlayerMoveEvent event) {
+        BWMermaid mermaid = (BWMermaid) instance.getPlayerManager().getPlayer(event.getPlayer().getUniqueId());
+        if(mermaid.isUnderWater()) {
+            event.getPlayer().addPotionEffect(new PotionEffect(PotionEffectType.SPEED, Integer.MAX_VALUE, 1));
+        } else {
+            event.getPlayer().removePotionEffect(PotionEffectType.SPEED);
+        }
+        return;
+    }
+
 
     @EventHandler
     public void onPlayerMove(PlayerMoveEvent event) {
         if(instance.getPlayerManager().getPlayer(event.getPlayer().getUniqueId()) instanceof BWWerewolf) werewolfNightVision(event);
+        if(instance.getPlayerManager().getPlayer(event.getPlayer().getUniqueId()) instanceof BWMermaid) mermaidSpeed(event);
     }
 
 }

@@ -54,12 +54,12 @@ public enum BWRace {
  * HUMAN:
  * - None
  * MERMAID:
- * - 2.0x damage with trident
- * - 1.5x damage underwater
- * - Can breathe underwater
- * - Can swim faster
- * - Can mine underwater
- * - Can't drown
+ * - 2.0x damage with trident Done
+ * - 1.5x damage underwater Done
+ * - Can breathe underwater Done
+ * - Can swim faster Done
+ * - Can mine underwater Done
+ * - Can't drown Done
  * SERPENTINE:
  * - One punch poisons enemy
  * ELF:
