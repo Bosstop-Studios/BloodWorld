@@ -5,6 +5,7 @@ import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
+import tech.bosstop.common.structures.races.BWElf;
 import tech.bosstop.common.structures.races.BWMermaid;
 import tech.bosstop.common.structures.races.BWWerewolf;
 
@@ -30,11 +31,17 @@ public class onMove extends BWEvent {
         return;
     }
 
+    private void elfRegen(PlayerMoveEvent event) {
+        BWElf elf = (BWElf) instance.getPlayerManager().getPlayer(event.getPlayer().getUniqueId());
+        //if(elf.is)
+    }
+
 
     @EventHandler
     public void onPlayerMove(PlayerMoveEvent event) {
         if(instance.getPlayerManager().getPlayer(event.getPlayer().getUniqueId()) instanceof BWWerewolf) werewolfNightVision(event);
         if(instance.getPlayerManager().getPlayer(event.getPlayer().getUniqueId()) instanceof BWMermaid) mermaidSpeed(event);
+        if(instance.getPlayerManager().getPlayer(event.getPlayer().getUniqueId()) instanceof BWElf) elfRegen(event);
     }
 
 }

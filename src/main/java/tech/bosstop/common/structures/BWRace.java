@@ -63,8 +63,8 @@ public enum BWRace {
  * SERPENTINE:
  * - One punch poisons enemy Done
  * ELF:
- * - 1.5x damage with bow durning day
- * - 1.5x regeneration durning day
+ * - 1.5x damage with bow durning day Done
+ * - 1.5x regeneration durning day 
  * TROLL:
  * - 1.5x defense durning night
  * - 1.5x health

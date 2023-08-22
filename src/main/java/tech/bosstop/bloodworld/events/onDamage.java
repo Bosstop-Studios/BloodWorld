@@ -7,6 +7,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 
+import tech.bosstop.common.structures.races.BWElf;
 import tech.bosstop.common.structures.races.BWMermaid;
 import tech.bosstop.common.structures.races.BWSerpentine;
 import tech.bosstop.common.structures.races.BWWerewolf;
@@ -39,6 +40,11 @@ public class onDamage extends BWEvent {
         if(serpentine.poisonPunch((Player) event.getEntity())) event.setCancelled(true);
     }
 
+    private void damagedByElf(EntityDamageByEntityEvent event) {
+        BWElf elf = (BWElf) instance.getPlayerManager().getPlayer(event.getDamager().getUniqueId());
+        if(elf.isBowDamage()) event.setDamage(elf.getDamage(event.getDamage()));
+    }
+
 
     @EventHandler
     public void onEntityDamageByEntity(EntityDamageByEntityEvent event) {
@@ -49,6 +55,8 @@ public class onDamage extends BWEvent {
         if(instance.getPlayerManager().getPlayer(event.getEntity().getUniqueId()) instanceof BWMermaid) damagedByMermaid(event);
 
         if(instance.getPlayerManager().getPlayer(event.getEntity().getUniqueId()) instanceof BWSerpentine) damagedBySerpentine(event);
+
+        if(instance.getPlayerManager().getPlayer(event.getDamager().getUniqueId()) instanceof BWElf) damagedByElf(event);
     }
 
     @EventHandler
